@@ -1,0 +1,138 @@
+@font-face{font-family: 'Nunito'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/nunito-0.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family: 'Nunito'; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/nunito-1.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family: 'Nunito'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/nunito-0.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family: 'Nunito'; font-style: normal; font-weight: 700; font-display: swap; src: url(fonts/nunito-1.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family: 'Nunito'; font-style: normal; font-weight: 800; font-display: swap; src: url(fonts/nunito-0.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family: 'Nunito'; font-style: normal; font-weight: 800; font-display: swap; src: url(fonts/nunito-1.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:Adventsrund;src:url(fonts/Adventsrund-Regular.otf) format("opentype");font-display:swap}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;background:linear-gradient(180deg,#D6EBF9 0,#EAF4FB 360px,#FFFFFF 900px) no-repeat;color:#2B1D16;font-family:Nunito,system-ui,sans-serif;font-size:18px;line-height:1.6}
+a{color:#1F5E47}a:hover{color:#E8402F}
+.top{display:flex;justify-content:center;padding:18px 16px 4px}
+.top-in{max-width:1000px;margin:0 auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-family:Adventsrund,Nunito,sans-serif;font-size:26px;line-height:1.1;color:#FFC93C;text-decoration:none}
+.brand:hover{color:#FFE08A}
+.nav{display:flex;gap:4px;padding:4px;background:#FFFFFF;border-radius:999px;box-shadow:0 2px 10px rgba(44,92,154,.12)}
+.nav a{color:#1F5E47;text-decoration:none;font-weight:800;padding:9px 20px;border-radius:999px;min-height:42px;display:inline-flex;align-items:center}
+.nav a:hover{background:#EAF4FB;color:#1F5E47}.nav a[aria-current]{background:#1F5E47;color:#FFFFFF}
+main{max-width:1000px;margin:0 auto;padding:24px 20px 48px}
+h1{font-family:Adventsrund,Nunito,sans-serif;font-weight:400;font-size:clamp(32px,6vw,48px);line-height:1.1;margin:0 0 8px;color:#1F5E47}
+.lead{margin:0 0 28px;max-width:640px;text-wrap:pretty}
+.hinweis{background:#D6EBF9;border-radius:14px;padding:12px 16px;margin:0 0 24px;font-weight:700;color:#2C5C9A}
+.grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:420px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}}
+.tuer{position:relative;aspect-ratio:1;border-radius:16px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-family:Adventsrund,Nunito,sans-serif;font-size:clamp(34px,9vw,48px);color:var(--f);background:#FFFFFF;box-shadow:inset 0 0 0 3px var(--f),0 2px 6px rgba(31,94,71,.12);-webkit-text-stroke:5px var(--r);paint-order:stroke fill;transition:transform .15s;-webkit-tap-highlight-color:transparent}
+.tuer:hover{transform:translateY(-3px);color:var(--f)}
+.tuer.zu{cursor:default}.tuer.zu:hover{transform:none}
+.tuer.offen{background:var(--f);box-shadow:inset 0 0 0 3px var(--r)}
+.tuer.offen img{width:62%;height:62%;object-fit:contain}
+.tuer.offen .nr{position:absolute;left:8px;top:4px;font-size:20px;color:#FFFFFF;-webkit-text-stroke:3px var(--r)}
+.story{max-width:680px;margin:0 auto}
+.story-nr{text-align:center;margin:4px 0 18px}
+.story-nr{font-family:Adventsrund,Nunito,sans-serif;font-size:96px;line-height:1;color:var(--f);-webkit-text-stroke:7px var(--r);paint-order:stroke fill}
+.story-bild{display:block;width:140px;height:140px;object-fit:contain;margin:32px auto 0}
+.story p{margin:0 0 16px;font-size:20px;line-height:1.7;text-wrap:pretty}
+.blaettern{display:flex;justify-content:space-between;gap:10px;margin-top:32px;flex-wrap:wrap}
+.knopf{display:inline-flex;align-items:center;justify-content:center;min-height:46px;font-weight:800;text-decoration:none;padding:10px 18px;border-radius:999px;background:#1F5E47;color:#fff}
+.knopf:hover{background:#E8402F;color:#fff}
+.knopf.leer{visibility:hidden}
+.schritte{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:14px;max-width:720px}
+.schritte li{display:grid;grid-template-columns:52px minmax(0,1fr) 92px;gap:14px;align-items:center;background:#fff;border-radius:16px;padding:16px}
+.schritt-bild{width:92px;height:92px;object-fit:contain;display:block}
+
+.tuer-mini{display:flex;align-items:center;justify-content:center;border-radius:14px;background:#FFFFFF;box-shadow:inset 0 0 0 3px var(--f);font-family:Adventsrund,Nunito,sans-serif;font-size:46px;color:var(--f);-webkit-text-stroke:5px var(--r);paint-order:stroke fill}
+.schritte .n{font-family:Adventsrund,Nunito,sans-serif;font-size:40px;line-height:1;color:#E8402F;text-align:center}
+.schritte h2{margin:0 0 4px;font-size:20px;color:#1F5E47}
+.schritte p{margin:0;text-wrap:pretty}
+footer{text-align:center;font-size:14px;color:#5B6B62;padding:0 20px 32px}
+.story .knopf{background:var(--r,#1F5E47)}
+.story .knopf:hover{background:#E8402F}
+@media(max-width:600px){
+  body{font-size:17px}
+  .top{padding:14px 12px 2px}
+  .nav a{padding:8px 16px;font-size:16px}
+  main{padding:20px 14px calc(48px + env(safe-area-inset-bottom))}
+  .lead{margin-bottom:20px}
+  .grid{gap:9px}
+  .tuer{border-radius:13px}
+  .story-nr{font-size:72px;-webkit-text-stroke:6px var(--r)}
+  .story-bild{width:120px;height:120px}
+  .story p{font-size:19px;line-height:1.65}
+  .blaettern{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .blaettern .knopf{padding:10px 6px;font-size:15px;white-space:nowrap}
+  .schritte li{grid-template-columns:34px minmax(0,1fr) 68px;padding:12px;gap:10px}
+  .schritt-bild{width:68px;height:68px}
+  .tuer-mini{font-size:36px}
+  .schritte .n{font-size:32px}
+}
+.nav a{gap:7px}
+.ico{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.sprache{max-width:720px;margin:0;font-size:16px;color:#4A5A52}
+.top{padding:14px 16px 0}
+.nav{gap:22px;padding:0;background:none;box-shadow:none;border-radius:0}
+.nav a,.nav a:hover,.nav a[aria-current]{background:none;border-radius:0;padding:8px 2px;min-height:44px;color:#1F5E47;font-weight:800;border-bottom:3px solid transparent}
+.nav a:hover{color:#2F9E5B}
+.nav a[aria-current]{border-bottom-color:#2F9E5B}
+.top{display:flex;max-width:1000px;margin:0 auto;padding:12px 20px 0;justify-content:flex-start}
+.mini{display:inline-flex;align-items:center;gap:6px;min-height:40px;font-size:15px;font-weight:700;color:#4A6B5C;text-decoration:none}
+.mini:hover{color:#1F5E47}
+.mini .ico{width:17px;height:17px}
+.mini.rechts{margin-left:auto}
+@media(max-width:600px){.top{padding:8px 14px 0}}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+h1.story-nr{font-weight:400}
+.unten{max-width:1000px;margin:0 auto;padding:0 20px 36px;display:flex;justify-content:center}
+.mini{min-height:44px}
+a:focus-visible,.tuer:focus-visible{outline:3px solid #2C5C9A;outline-offset:3px;border-radius:12px}
+@media(prefers-reduced-motion:reduce){.tuer{transition:none}.tuer:hover{transform:none}}
+body>main:first-child,body>main:first-of-type{padding-top:28px}
+body.schnee{background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27400%27%20height%3D%27400%27%3E%3Cg%20fill%3D%27white%27%3E%3Ccircle%20cx%3D%270%27%20cy%3D%2753%27%20r%3D%273.2%27%20opacity%3D%270.76%27%2F%3E%3Ccircle%20cx%3D%27213%27%20cy%3D%2788%27%20r%3D%271.3%27%20opacity%3D%270.86%27%2F%3E%3Ccircle%20cx%3D%27272%27%20cy%3D%27374%27%20r%3D%272.2%27%20opacity%3D%270.78%27%2F%3E%3Ccircle%20cx%3D%27332%27%20cy%3D%2714%27%20r%3D%271.3%27%20opacity%3D%270.79%27%2F%3E%3Ccircle%20cx%3D%27268%27%20cy%3D%273%27%20r%3D%272.2%27%20opacity%3D%270.58%27%2F%3E%3Ccircle%20cx%3D%27167%27%20cy%3D%27275%27%20r%3D%272.7%27%20opacity%3D%270.97%27%2F%3E%3Ccircle%20cx%3D%27338%27%20cy%3D%27211%27%20r%3D%271.4%27%20opacity%3D%270.84%27%2F%3E%3Ccircle%20cx%3D%27166%27%20cy%3D%27280%27%20r%3D%273.6%27%20opacity%3D%270.89%27%2F%3E%3Ccircle%20cx%3D%27105%27%20cy%3D%2719%27%20r%3D%273.1%27%20opacity%3D%270.70%27%2F%3E%3Ccircle%20cx%3D%27253%27%20cy%3D%27303%27%20r%3D%273.8%27%20opacity%3D%270.71%27%2F%3E%3Ccircle%20cx%3D%2799%27%20cy%3D%27393%27%20r%3D%273.1%27%20opacity%3D%270.89%27%2F%3E%3Ccircle%20cx%3D%27261%27%20cy%3D%2729%27%20r%3D%272.8%27%20opacity%3D%270.95%27%2F%3E%3Ccircle%20cx%3D%27109%27%20cy%3D%27175%27%20r%3D%273.2%27%20opacity%3D%270.76%27%2F%3E%3Ccircle%20cx%3D%2795%27%20cy%3D%27110%27%20r%3D%272.1%27%20opacity%3D%270.62%27%2F%3E%3Ccircle%20cx%3D%27195%27%20cy%3D%27359%27%20r%3D%273.6%27%20opacity%3D%270.58%27%2F%3E%3Ccircle%20cx%3D%27362%27%20cy%3D%27202%27%20r%3D%272.5%27%20opacity%3D%270.69%27%2F%3E%3Ccircle%20cx%3D%27395%27%20cy%3D%27198%27%20r%3D%271.9%27%20opacity%3D%270.59%27%2F%3E%3Ccircle%20cx%3D%27379%27%20cy%3D%2729%27%20r%3D%272.5%27%20opacity%3D%270.72%27%2F%3E%3Ccircle%20cx%3D%27111%27%20cy%3D%27366%27%20r%3D%272.6%27%20opacity%3D%270.76%27%2F%3E%3Ccircle%20cx%3D%27376%27%20cy%3D%2720%27%20r%3D%273.2%27%20opacity%3D%270.90%27%2F%3E%3Ccircle%20cx%3D%27331%27%20cy%3D%2750%27%20r%3D%271.2%27%20opacity%3D%270.86%27%2F%3E%3Ccircle%20cx%3D%27347%27%20cy%3D%27252%27%20r%3D%273.1%27%20opacity%3D%270.88%27%2F%3E%3Ccircle%20cx%3D%27400%27%20cy%3D%27355%27%20r%3D%271.8%27%20opacity%3D%270.69%27%2F%3E%3Ccircle%20cx%3D%27140%27%20cy%3D%27205%27%20r%3D%272.7%27%20opacity%3D%270.93%27%2F%3E%3Ccircle%20cx%3D%27165%27%20cy%3D%27337%27%20r%3D%271.9%27%20opacity%3D%270.74%27%2F%3E%3Ccircle%20cx%3D%27215%27%20cy%3D%27187%27%20r%3D%271.9%27%20opacity%3D%270.63%27%2F%3E%3Ccircle%20cx%3D%2761%27%20cy%3D%27229%27%20r%3D%273.3%27%20opacity%3D%270.56%27%2F%3E%3Ccircle%20cx%3D%27214%27%20cy%3D%27199%27%20r%3D%273.7%27%20opacity%3D%270.89%27%2F%3E%3Ccircle%20cx%3D%27222%27%20cy%3D%27356%27%20r%3D%272.8%27%20opacity%3D%270.93%27%2F%3E%3Ccircle%20cx%3D%2764%27%20cy%3D%2785%27%20r%3D%273.1%27%20opacity%3D%270.61%27%2F%3E%3Ccircle%20cx%3D%2736%27%20cy%3D%27110%27%20r%3D%271.2%27%20opacity%3D%270.74%27%2F%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%27284%27%20r%3D%273.6%27%20opacity%3D%270.66%27%2F%3E%3Ccircle%20cx%3D%2772%27%20cy%3D%27127%27%20r%3D%273.5%27%20opacity%3D%270.84%27%2F%3E%3Ccircle%20cx%3D%2760%27%20cy%3D%27273%27%20r%3D%272.2%27%20opacity%3D%270.72%27%2F%3E%3Ccircle%20cx%3D%27200%27%20cy%3D%2759%27%20r%3D%272.7%27%20opacity%3D%270.93%27%2F%3E%3Ccircle%20cx%3D%27236%27%20cy%3D%27382%27%20r%3D%272.6%27%20opacity%3D%270.62%27%2F%3E%3Ccircle%20cx%3D%27393%27%20cy%3D%27164%27%20r%3D%271.6%27%20opacity%3D%270.80%27%2F%3E%3Ccircle%20cx%3D%27101%27%20cy%3D%27195%27%20r%3D%272.4%27%20opacity%3D%270.98%27%2F%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2780%27%20r%3D%272.0%27%20opacity%3D%270.83%27%2F%3E%3Ccircle%20cx%3D%2751%27%20cy%3D%27261%27%20r%3D%272.8%27%20opacity%3D%270.91%27%2F%3E%3Ccircle%20cx%3D%2799%27%20cy%3D%27191%27%20r%3D%272.2%27%20opacity%3D%270.64%27%2F%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%27361%27%20r%3D%272.3%27%20opacity%3D%270.61%27%2F%3E%3Ccircle%20cx%3D%27379%27%20cy%3D%27164%27%20r%3D%271.5%27%20opacity%3D%270.95%27%2F%3E%3Ccircle%20cx%3D%2737%27%20cy%3D%2765%27%20r%3D%271.4%27%20opacity%3D%270.71%27%2F%3E%3Ccircle%20cx%3D%27101%27%20cy%3D%2754%27%20r%3D%273.2%27%20opacity%3D%270.75%27%2F%3E%3Ccircle%20cx%3D%27140%27%20cy%3D%27181%27%20r%3D%273.3%27%20opacity%3D%270.97%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat,linear-gradient(180deg,#C9E2F5 0,#E2F0FA 420px,#F4F9FC 100%) fixed;background-size:400px 400px,auto}
+.schnee main{padding-top:24px}
+.schnee .unten{padding-top:24px}
+
+.pop{border:0;border-radius:20px;padding:24px;width:min(420px,calc(100vw - 32px));box-shadow:0 12px 40px rgba(31,94,71,.25);color:#2B1D16}
+.pop::backdrop{background:rgba(44,92,154,.35)}
+.pop h2{margin:0 0 14px;font-family:Adventsrund,Nunito,sans-serif;font-weight:400;font-size:30px;color:#1F5E47;text-align:center}
+.pop-schritte{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:12px}
+.pop-schritte li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;font-size:17px;line-height:1.4}
+.pop-schritte img{width:52px;height:52px;object-fit:contain;display:block}
+.pop-schritte .tuer-mini{width:52px;height:52px;font-size:30px;border-radius:11px;-webkit-text-stroke:4px var(--r)}
+.pop form{display:flex;justify-content:center;margin:0}
+.pop .knopf{border:0;font:inherit;font-weight:800;cursor:pointer;padding:10px 28px}
+.hinweisband{display:flex;align-items:center;gap:8px;min-height:44px;margin:0 0 14px;padding:8px 14px;border-radius:12px;background:rgba(255,255,255,.7);color:#1F5E47;font-size:16px;font-weight:700;text-decoration:none}
+.hinweisband span{flex:1}
+.hinweisband .ico{width:18px;height:18px}
+.hinweisband:hover{background:#FFFFFF;color:#1F5E47}
+.unten .mini{padding:8px 16px;border-radius:12px;background:rgba(255,255,255,.7);color:#1F5E47;font-size:16px}
+.unten .mini:hover{background:#FFFFFF}
+.unten .mini .ico{width:18px;height:18px}
+.titel{margin:4px 0 16px;text-align:center;font-family:"Century Gothic",Nunito,sans-serif;font-weight:800;font-size:clamp(28px,7vw,46px);line-height:1.15;letter-spacing:.01em;display:flex;flex-wrap:wrap;justify-content:center;column-gap:.35em}
+.titel span span{-webkit-text-stroke-width:2px;paint-order:stroke fill}
+.hinweisband,.unten .mini{width:300px;max-width:100%;margin-left:auto;margin-right:auto;justify-content:center;font-size:15px;min-height:40px;padding:6px 12px}
+.hinweisband span{flex:none}
+.hinweisband{margin-bottom:16px}
+.unten .mini{display:flex}
+.hinweisband .ico,.unten .mini .ico{width:16px;height:16px}
+.titel span span{-webkit-text-stroke-width:4.5px}
+.impressum{max-width:1000px;margin:0 auto;padding:0 20px 28px;text-align:center;font-size:13px;line-height:1.5;color:#4A6B5C}
+.impressum a{color:#1F5E47}
+.app-tipp{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;align-items:start;background:rgba(255,255,255,.7);border-radius:16px;padding:14px 16px;margin:8px 0 18px}
+.app-tipp img{width:56px;height:56px;border-radius:13px;display:block}
+.app-tipp h2{margin:0 0 4px;font-size:18px;color:#1F5E47}
+.app-tipp p{margin:0 0 4px;font-size:15px;line-height:1.45}
+.app-tipp{max-width:720px;box-sizing:border-box}
+.tipps{max-width:720px;display:grid;gap:6px;margin:0 0 8px}
+.tipp{border-radius:12px}
+.tipp summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;font-size:15px;font-weight:700;color:#1F5E47;border-radius:12px}
+.tipp summary::-webkit-details-marker{display:none}
+.tipp summary::before{content:"";width:7px;height:7px;border-right:2.2px solid currentColor;border-bottom:2.2px solid currentColor;transform:rotate(-45deg);transition:transform .15s;flex:none}
+.tipp[open] summary::before{transform:rotate(45deg)}
+.tipp summary:hover{background:rgba(255,255,255,.5)}
+.tipp summary:focus-visible{outline:3px solid #2C5C9A;outline-offset:2px}
+.tipp[open]{background:rgba(255,255,255,.7)}
+.tipp p{margin:0 0 8px;padding:0 12px 0 27px;font-size:15px;line-height:1.45;color:#2B1D16}
+.tipp p:last-child{padding-bottom:6px}
+.install-knopf{border:0;font:inherit;font-weight:800;cursor:pointer;padding:8px 18px;font-size:15px}
+.tipp p[hidden],.tipp[hidden]{display:none}

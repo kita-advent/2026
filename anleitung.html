@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F5E47">
+<title>Anleitung – Geschichten-Adventskalender</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="bilder/favicon-32.png">
+<link rel="apple-touch-icon" href="bilder/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Advent">
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})});</script>
+</head>
+<body>
+
+<main>
+  <h1>So geht's</h1>
+  <ol class="schritte">
+    <li><span class="n">1</span><div><h2>Plakat aufhängen</h2><p>Hängt das Plakat mit dem Baum gut erreichbar auf.</p></div><img class="schritt-bild" src="bilder/plakat-a2.png" alt=""></li>
+    <li><span class="n">2</span><div><h2>Geschichte vorlesen</h2><p>Öffnet jeden Tag im <a href="index.html">Kalender</a> das Türchen des Tages und lest die Geschichte vor.</p></div><span class="schritt-bild tuer-mini" aria-hidden="true" style="--f:#FFE298;--r:#FFB935">1</span></li>
+    <li><span class="n">3</span><div><h2>Motiv aufkleben</h2><p>Unter jeder Geschichte seht ihr ein Motiv, das unten auf dem Plakat ist. Schneidet es aus und klebt es auf den Baum.</p></div><img class="schritt-bild" src="motive/02-Kugel-rot.svg" alt=""></li>
+  </ol>
+  <div class="tipps">
+    <details class="tipp" id="app-tipp"><summary>Tipp: Als App ablegen</summary>
+      <p id="install-zeile" hidden><button type="button" class="knopf install-knopf" id="install-knopf">Jetzt installieren</button></p>
+      <p><strong>iPhone:</strong> In Safari unten auf Teilen tippen, dann „Zum Home-Bildschirm“.</p>
+      <p><strong>Android / Computer:</strong> Im Browser-Menü (meist ⋮ oder ≡) auf „Installieren“, „App installieren“ oder „Zum Startbildschirm hinzufügen“ tippen – der Name ist je nach Browser etwas anders.</p>
+    </details>
+    <details class="tipp"><summary>Tipp: Andere Sprache? <span lang="en">Other language?</span></summary>
+      <p>Nutzt die Übersetzen-Funktion eures Browsers – auf dem Handy meist im Menü unter „Übersetzen“.</p>
+      <p lang="en">Use your browser’s translate function – on phones usually in the menu under “Translate”.</p>
+    </details>
+  </div>
+</main>
+<footer class="unten"><a class="mini" href="index.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>Zurück zum Kalender</a></footer>
+<p class="impressum">Privates Adventskalender-Projekt für Kita-Kinder · Kontakt: <a href="mailto:kita-advent@proton.me">kita-advent@proton.me</a></p>
+<script>
+(function(){
+  var tipp=document.getElementById('app-tipp'),zeile=document.getElementById('install-zeile'),knopf=document.getElementById('install-knopf'),ev=null;
+  var istApp=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone;
+  if(istApp){tipp.hidden=true;return;}
+  addEventListener('beforeinstallprompt',function(e){ev=e;zeile.hidden=false;});
+  knopf.addEventListener('click',function(){if(!ev)return;ev.prompt();ev.userChoice.then(function(){ev=null;zeile.hidden=true;});});
+  addEventListener('appinstalled',function(){tipp.hidden=true;});
+})();
+</script>
+</body>
+</html>

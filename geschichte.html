@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F5E47">
+<title>Geschichte – Geschichten-Adventskalender</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="bilder/favicon-32.png">
+<link rel="apple-touch-icon" href="bilder/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Advent">
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})});</script>
+</head>
+<body>
+
+<main id="inhalt">
+  <article class="story" id="story"></article>
+</main>
+<footer class="unten"><a class="mini" href="index.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"></path></svg>Zurück zum Kalender</a></footer>
+<script src="geschichten.js"></script>
+<script>
+(function(){
+  window.freigegeben=function(){return true};
+  window.geoeffnet=function(){try{return JSON.parse(localStorage.getItem('advent-offen')||'[]')}catch(e){return[]}};
+  window.merkeOffen=function(tag){var o=geoeffnet();if(o.indexOf(tag)<0){o.push(tag);localStorage.setItem('advent-offen',JSON.stringify(o))}};
+})();
+</script>
+<script>
+(function(){
+  var tag=parseInt(new URLSearchParams(location.search).get('tag'),10),el=document.getElementById('story');
+  var g=GESCHICHTEN[tag-1];
+  if(!g){el.innerHTML='<h1>Diese Geschichte gibt es nicht</h1>';return}
+  document.title='Tag '+tag+' – Geschichten-Adventskalender';
+  if(!freigegeben(tag)){el.innerHTML='<h1>Noch ein bisschen Geduld</h1><p>Dieses Türchen öffnet sich am '+tag+'. Dezember.</p><p><a class="knopf" href="index.html">Zum Kalender</a></p>';return}
+  merkeOffen(tag);el.style.setProperty('--f',g.farbe);el.style.setProperty('--r',g.rand);
+  var html='<h1 class="story-nr"><span class="sr">Tag </span>'+tag+'</h1>';
+  g.text.forEach(function(p){var e=document.createElement('p');e.textContent=p;html+=e.outerHTML});
+  html+='<img class="story-bild" src="'+g.bild+'" alt="'+g.motiv+'">';
+  el.innerHTML=html;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F5E47">
+<title>Geschichten-Adventskalender</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="bilder/favicon-32.png">
+<link rel="apple-touch-icon" href="bilder/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Advent">
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})});</script>
+</head>
+<body class="schnee">
+
+<main>
+  <h1 class="titel" aria-label="Geschichten-Adventskalender"><span class="titel-z" aria-hidden="true"><span style="color:#82CA64;-webkit-text-stroke-color:#498337">G</span><span style="color:#75AADA;-webkit-text-stroke-color:#1353A1">e</span><span style="color:#FFA32F;-webkit-text-stroke-color:#FF6E21">s</span><span style="color:#A490C8;-webkit-text-stroke-color:#47379D">c</span><span style="color:#FF777B;-webkit-text-stroke-color:#D32819">h</span><span style="color:#FFE298;-webkit-text-stroke-color:#E09A1A">i</span><span style="color:#82CA64;-webkit-text-stroke-color:#498337">c</span><span style="color:#75AADA;-webkit-text-stroke-color:#1353A1">h</span><span style="color:#FFA32F;-webkit-text-stroke-color:#FF6E21">t</span><span style="color:#A490C8;-webkit-text-stroke-color:#47379D">e</span><span style="color:#FF777B;-webkit-text-stroke-color:#D32819">n</span></span><span class="titel-z" aria-hidden="true"><span style="color:#FFE298;-webkit-text-stroke-color:#E09A1A">A</span><span style="color:#82CA64;-webkit-text-stroke-color:#498337">d</span><span style="color:#75AADA;-webkit-text-stroke-color:#1353A1">v</span><span style="color:#FFA32F;-webkit-text-stroke-color:#FF6E21">e</span><span style="color:#A490C8;-webkit-text-stroke-color:#47379D">n</span><span style="color:#FF777B;-webkit-text-stroke-color:#D32819">t</span><span style="color:#FFE298;-webkit-text-stroke-color:#E09A1A">s</span><span style="color:#82CA64;-webkit-text-stroke-color:#498337">k</span><span style="color:#75AADA;-webkit-text-stroke-color:#1353A1">a</span><span style="color:#FFA32F;-webkit-text-stroke-color:#FF6E21">l</span><span style="color:#A490C8;-webkit-text-stroke-color:#47379D">e</span><span style="color:#FF777B;-webkit-text-stroke-color:#D32819">n</span><span style="color:#FFE298;-webkit-text-stroke-color:#E09A1A">d</span><span style="color:#82CA64;-webkit-text-stroke-color:#498337">e</span><span style="color:#75AADA;-webkit-text-stroke-color:#1353A1">r</span></span></h1>
+  <a class="hinweisband" href="anleitung.html"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7"></path><line x1="12" y1="17" x2="12" y2="17.01"></line></svg><span>So funktioniert der Kalender</span><svg class="ico pfeil" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+  <div class="grid" id="kalender"></div>
+</main>
+<script src="geschichten.js"></script>
+<script>
+(function(){
+  window.freigegeben=function(){return true};
+  window.geoeffnet=function(){try{return JSON.parse(localStorage.getItem('advent-offen')||'[]')}catch(e){return[]}};
+  window.merkeOffen=function(tag){var o=geoeffnet();if(o.indexOf(tag)<0){o.push(tag);localStorage.setItem('advent-offen',JSON.stringify(o))}};
+})();
+</script>
+<script>
+(function(){
+  var reihenfolge=[];for(var t=1;t<=24;t++)reihenfolge.push(t);
+  var offen=geoeffnet(),k=document.getElementById('kalender');
+  reihenfolge.forEach(function(tag,i){
+    var g=GESCHICHTEN[tag-1],a=document.createElement('a'),frei=freigegeben(tag);
+    a.style.setProperty('--f',g.farbe);a.style.setProperty('--r',g.rand);a.className='tuer';
+    a.setAttribute('aria-label','Geschichte für Tag '+tag);
+    a.href='geschichte.html?tag='+tag;
+    a.textContent=tag;
+    k.appendChild(a);
+  });
+})();
+</script>
+</body>
+</html>
